@@ -4,9 +4,11 @@
 %} 
 
 NUM         [0-9]
-STRING      [a-zA-Z]
 STRING_N    [a-zA-Z0-9.-_]
 SPACE       [" "]+
+PA          [(]
+PC          [)]
+COMMA       [,]
 
 %%
 
@@ -18,11 +20,10 @@ cierra      {return(CIERRA);};
 ingresa     {return(INGRESA);};
 lista       {return(LISTA);};
 muestra     {return(MUESTRA);};
-{NUM}+      {return(NUM);};
-{STRING}+   {return(STRING);};
-{STRING_N}+ {return(STRING_N);};
+{NUM}+      {yylval.ival = atoi(yytext); return(NUM);};
+{STRING_N}+ {yylval.sval = yytext; return(STRING_N);};
 {SPACE}     { /* do nothing */};
 \n          { /* do nothing */};
-"("         {return(PA);};
-")"         {return(PC);};
-","         {return(COMMA);};
+{PA}        {return(PA);};
+{PC}        {return(PC);};
+{COMMA}     {return(COMMA);};

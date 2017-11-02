@@ -45,14 +45,13 @@
      CIERRA = 261,
      ABRE = 262,
      INGRESA = 263,
-     NUM = 264,
-     STRING = 265,
-     STRING_N = 266,
-     LISTA = 267,
-     MUESTRA = 268,
-     PA = 269,
-     PC = 270,
-     COMMA = 271
+     LISTA = 264,
+     MUESTRA = 265,
+     PA = 266,
+     PC = 267,
+     COMMA = 268,
+     STRING_N = 269,
+     NUM = 270
    };
 #endif
 /* Tokens.  */
@@ -62,20 +61,27 @@
 #define CIERRA 261
 #define ABRE 262
 #define INGRESA 263
-#define NUM 264
-#define STRING 265
-#define STRING_N 266
-#define LISTA 267
-#define MUESTRA 268
-#define PA 269
-#define PC 270
-#define COMMA 271
+#define LISTA 264
+#define MUESTRA 265
+#define PA 266
+#define PC 267
+#define COMMA 268
+#define STRING_N 269
+#define NUM 270
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+#line 11 "tarea.y"
+{
+	char *sval;
+	int ival;
+}
+/* Line 1529 of yacc.c.  */
+#line 84 "y.tab.h"
+	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
 # define YYSTYPE_IS_TRIVIAL 1
