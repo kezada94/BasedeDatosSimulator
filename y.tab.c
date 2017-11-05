@@ -103,6 +103,7 @@
 #line 1 "tarea.y"
  /* fichero instrucciones.y */ 
 	#include <stdio.h>
+    #include <string.h> 
 	FILE* archivo;
 
 
@@ -126,13 +127,13 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 11 "tarea.y"
+#line 12 "tarea.y"
 {
 	char *sval;
 	int ival;
 }
 /* Line 193 of yacc.c.  */
-#line 136 "y.tab.c"
+#line 137 "y.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -145,7 +146,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 149 "y.tab.c"
+#line 150 "y.tab.c"
 
 #ifdef short
 # undef short
@@ -358,18 +359,18 @@ union yyalloc
 #endif
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  6
+#define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   37
+#define YYLAST   39
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  16
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  9
+#define YYNNTS  17
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  14
+#define YYNRULES  22
 /* YYNRULES -- Number of states.  */
-#define YYNSTATES  43
+#define YYNSTATES  53
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
@@ -416,26 +417,30 @@ static const yytype_uint8 yytranslate[] =
    YYRHS.  */
 static const yytype_uint8 yyprhs[] =
 {
-       0,     0,     3,     7,     8,    16,    17,    25,    26,    27,
-      42,    43,    47,    48,    55
+       0,     0,     3,     4,     9,    10,    11,    12,    13,    25,
+      26,    27,    37,    38,    39,    40,    56,    57,    58,    63,
+      64,    65,    73
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      17,     0,    -1,     3,    18,     4,    -1,    -1,     5,    11,
-      14,    19,    12,    21,     6,    -1,    -1,     7,    11,    14,
-      20,    12,    21,     6,    -1,    -1,    -1,     8,    11,    15,
-      13,    14,    13,    15,    13,    14,    13,    14,    22,    12,
-      21,    -1,    -1,     9,    23,    21,    -1,    -1,    10,    11,
-      15,    24,    12,    21,    -1,    -1
+      17,     0,    -1,    -1,     3,    18,    19,     4,    -1,    -1,
+      -1,    -1,    -1,     5,    11,    14,    20,    12,    21,    26,
+       6,    22,    23,    19,    -1,    -1,    -1,     7,    11,    14,
+      24,    12,    25,    26,     6,    19,    -1,    -1,    -1,    -1,
+       8,    11,    15,    13,    14,    13,    15,    13,    14,    13,
+      14,    27,    12,    28,    26,    -1,    -1,    -1,     9,    29,
+      30,    26,    -1,    -1,    -1,    10,    11,    15,    31,    12,
+      32,    26,    -1,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    17,    17,    18,    18,    18,    18,    18,    19,    19,
-      19,    19,    19,    19,    19
+       0,    18,    18,    18,    19,    19,    19,    19,    19,    19,
+      19,    19,    19,    20,    20,    20,    20,    20,    20,    20,
+      20,    20,    20
 };
 #endif
 
@@ -446,7 +451,8 @@ static const char *const yytname[] =
 {
   "$end", "error", "$undefined", "INICIA", "TERMINA", "CREA", "CIERRA",
   "ABRE", "INGRESA", "LISTA", "MUESTRA", "PA", "PC", "COMMA", "STRING_N",
-  "NUM", "$accept", "S", "inst_n", "@1", "@2", "inst", "@3", "@4", "@5", 0
+  "NUM", "$accept", "S", "@1", "inst_n", "@2", "@3", "@4", "@5", "@6",
+  "@7", "inst", "@8", "@9", "@10", "@11", "@12", "@13", 0
 };
 #endif
 
@@ -463,15 +469,17 @@ static const yytype_uint16 yytoknum[] =
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    16,    17,    19,    18,    20,    18,    18,    22,    21,
-      23,    21,    24,    21,    21
+       0,    16,    18,    17,    20,    21,    22,    23,    19,    24,
+      25,    19,    19,    27,    28,    26,    29,    30,    26,    31,
+      32,    26,    26
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
-       0,     2,     3,     0,     7,     0,     7,     0,     0,    14,
-       0,     3,     0,     6,     0
+       0,     2,     0,     4,     0,     0,     0,     0,    11,     0,
+       0,     9,     0,     0,     0,    15,     0,     0,     4,     0,
+       0,     7,     0
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -479,35 +487,39 @@ static const yytype_uint8 yyr2[] =
    means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,     7,     0,     0,     0,     0,     1,     0,     0,     2,
-       3,     5,     0,     0,    14,    14,     0,    10,     0,     0,
-       0,     0,    14,     0,     4,     6,     0,    11,    12,     0,
-       0,     0,    14,     0,    13,     0,     0,     0,     0,     8,
-       0,    14,     9
+       0,     2,     0,    12,     1,     0,     0,     0,     0,     0,
+       3,     4,     9,     0,     0,     5,    10,    22,    22,     0,
+      16,     0,     0,     0,     0,    17,     0,     6,    12,     0,
+      22,    19,     7,    11,     0,    18,     0,    12,     0,    20,
+       8,     0,    22,     0,    21,     0,     0,     0,    13,     0,
+      14,    22,    15
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,     5,    12,    13,    19,    40,    22,    30
+      -1,     2,     3,     7,    13,    17,    32,    37,    14,    18,
+      22,    49,    51,    25,    30,    36,    42
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
    STATE-NUM.  */
-#define YYPACT_NINF -16
+#define YYPACT_NINF -28
 static const yytype_int8 yypact[] =
 {
-       2,    -1,     8,    -2,     0,     6,   -16,     1,     4,   -16,
-     -16,   -16,     7,     9,    -7,    -7,     3,   -16,     5,    14,
-      16,    -3,    -7,    10,   -16,   -16,    11,   -16,   -16,    13,
-      17,    15,    -7,    18,   -16,    19,    20,    22,    23,   -16,
-      24,    -7,   -16
+       3,   -28,     8,     0,   -28,    -2,     2,     7,     1,     4,
+     -28,   -28,   -28,     5,     9,   -28,   -28,    -6,    -6,    11,
+     -28,    12,    10,    13,    -1,   -28,    14,   -28,     0,    15,
+      -6,   -28,   -28,   -28,     6,   -28,    18,     0,    19,   -28,
+     -28,    16,    -6,    21,   -28,    22,    24,    25,   -28,    23,
+     -28,    -6,   -28
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -16,   -16,   -16,   -16,   -16,   -15,   -16,   -16,   -16
+     -28,   -28,   -28,   -27,   -28,   -28,   -28,   -28,   -28,   -28,
+     -18,   -28,   -28,   -28,   -28,   -28,   -28
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -517,29 +529,30 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-      20,    16,    17,    18,     3,     1,     4,    27,     6,     7,
-       9,     8,    26,     0,    21,    10,    23,    34,    11,    14,
-      24,    15,    25,     0,    29,    28,    42,    31,    33,    32,
-       0,     0,    36,    35,    37,    38,    41,    39
+      23,    33,    19,    20,    21,     5,     1,     6,     4,     8,
+      40,    10,    35,     9,    29,    11,    27,    15,    12,    28,
+      38,    16,    24,    26,    44,     0,     0,     0,    34,    31,
+      39,    43,    41,    52,    45,    50,    46,    47,     0,    48
 };
 
 static const yytype_int8 yycheck[] =
 {
-      15,     8,     9,    10,     5,     3,     7,    22,     0,    11,
-       4,    11,    15,    -1,    11,    14,    11,    32,    14,    12,
-       6,    12,     6,    -1,    13,    15,    41,    14,    13,    12,
-      -1,    -1,    13,    15,    14,    13,    12,    14
+      18,    28,     8,     9,    10,     5,     3,     7,     0,    11,
+      37,     4,    30,    11,    15,    14,     6,    12,    14,     6,
+      14,    12,    11,    11,    42,    -1,    -1,    -1,    13,    15,
+      12,    15,    13,    51,    13,    12,    14,    13,    -1,    14
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     3,    17,     5,     7,    18,     0,    11,    11,     4,
-      14,    14,    19,    20,    12,    12,     8,     9,    10,    21,
-      21,    11,    23,    11,     6,     6,    15,    21,    15,    13,
-      24,    14,    12,    13,    21,    15,    13,    14,    13,    14,
-      22,    12,    21
+       0,     3,    17,    18,     0,     5,     7,    19,    11,    11,
+       4,    14,    14,    20,    24,    12,    12,    21,    25,     8,
+       9,    10,    26,    26,    11,    29,    11,     6,     6,    15,
+      30,    15,    22,    19,    13,    26,    31,    23,    14,    12,
+      19,    13,    32,    15,    26,    13,    14,    13,    14,    27,
+      12,    28,    26
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1353,39 +1366,74 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-        case 3:
+        case 2:
 #line 18 "tarea.y"
-    { creaArchivo((yyvsp[(3) - (3)].sval));}
+    {printf("BDS> ");}
     break;
 
   case 4:
-#line 18 "tarea.y"
-    {cierraArchivo();}
+#line 19 "tarea.y"
+    { creaArchivo((yyvsp[(3) - (3)].sval));}
     break;
 
   case 5:
-#line 18 "tarea.y"
-    { abreArchivo((yyvsp[(3) - (3)].sval)); }
+#line 19 "tarea.y"
+    {printf("BDS> ");}
     break;
 
-  case 8:
+  case 6:
 #line 19 "tarea.y"
-    {printf("ha %s", yylval);ingresaDato((yyvsp[(3) - (11)].ival),(yyvsp[(5) - (11)].sval),(yyvsp[(7) - (11)].ival),(yyvsp[(9) - (11)].sval),(yyvsp[(11) - (11)].sval));}
+    {cierraArchivo();}
+    break;
+
+  case 7:
+#line 19 "tarea.y"
+    {printf("BDS> ");}
+    break;
+
+  case 9:
+#line 19 "tarea.y"
+    { abreArchivo((yyvsp[(3) - (3)].sval)); }
     break;
 
   case 10:
 #line 19 "tarea.y"
+    {printf("BDS> ");}
+    break;
+
+  case 13:
+#line 20 "tarea.y"
+    {ingresaDato((yyvsp[(3) - (11)].ival),(yyvsp[(5) - (11)].sval),(yyvsp[(7) - (11)].ival),(yyvsp[(9) - (11)].sval),(yyvsp[(11) - (11)].sval));}
+    break;
+
+  case 14:
+#line 20 "tarea.y"
+    {printf("BDS> ");}
+    break;
+
+  case 16:
+#line 20 "tarea.y"
     { listarDatos(); }
     break;
 
-  case 12:
-#line 19 "tarea.y"
+  case 17:
+#line 20 "tarea.y"
+    {printf("BDS> ");}
+    break;
+
+  case 19:
+#line 20 "tarea.y"
     { muestraDato((yyvsp[(3) - (3)].ival));}
+    break;
+
+  case 20:
+#line 20 "tarea.y"
+    {printf("BDS> ");}
     break;
 
 
 /* Line 1267 of yacc.c.  */
-#line 1389 "y.tab.c"
+#line 1437 "y.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1599,62 +1647,117 @@ yyreturn:
 }
 
 
-#line 21 "tarea.y"
+#line 22 "tarea.y"
 
 
 void creaArchivo(char* finelame){
 	archivo = fopen(finelame, "w+");
-	if (archivo==NULL) {
-	    fputs ("File error",stderr); 
+	if (archivo == NULL) {
+	    fputs ("No se pudo crear el archivo\n",stderr); 
         exit (1);
 	}
-	printf("hele archivo %s\n", finelame);
 }
 void cierraArchivo(){
 	int res = fclose(archivo);
-    if(!res){
-        printf("Error al guardar el filo hermanito\n");
+    if(res){
+        printf("Error al guardar el archivo\n");
     }
 }
 
 void abreArchivo(char* filename){
     archivo = fopen(filename, "r+");
-	if (archivo==NULL) {
-	    fputs ("File error",stderr); 
+	if (archivo == NULL) {
+	    fputs ("No se encontro el archivo\n",stderr); 
         exit (1);
 	}
-	printf("abre archivo %s\n", filename);
 }
 
 void ingresaDato(int n, char* nombre, int edad, char* ocu, char* dir){
-    printf("se ingresara algo %i\n", n);
-    printf("se ingresara algo %s\n", nombre);
-    printf("se ingresara algo %i\n", edad);
-    printf("se ingresara algo %s\n", ocu);
-    printf("se ingresara algo %s\n", dir);
-    
-    fputs(n, archivo);
+    char line[256];                     //buffer
+    rewind(archivo);                    //get to the start to reset the pointer and avoid wrong appending
+    while (fgets(line, 256, archivo)){} //get to the end of the file for appending.
 
-    //fputs('\t', archivo);    
-    fputs(nombre, archivo);
-    fputs(edad, archivo);
-    fputs(ocu, archivo);
-    fputs(dir, archivo);
-    //fputs('\n', archivo);
+    fprintf(archivo, "%i,", n);
+    fprintf(archivo, "%s,", nombre);
+    fprintf(archivo, "%i,", edad);
+    fprintf(archivo, "%s,", ocu);
+    fprintf(archivo, "%s\n", dir);
+    
+    free(nombre);
+    free(ocu);
+    free(dir);
 }
 
 void listarDatos(){
+    rewind(archivo);
+    char line[256];
+    char* id;
+    char* nombre;
+    char* edad;
+    char* ocu;
+    char* dir;
+
+    printHeader();
+    while(fgets(line, 256, archivo)){
+        id = strtok(line, ",");
+        nombre = strtok(NULL, ",");
+        edad = strtok(NULL, ",");
+        ocu = strtok(NULL, ",");
+        dir = strtok(NULL, "\n");
+
+        printQuery(atoi(id), nombre, atoi(edad), ocu, dir);
+    }
+    printFooter();
 
 }
 
 void muestraDato(int n){
+    rewind(archivo);
+    char line[256];
+    char buff[256];
+    int id;
+    char* nombre;
+    char* edad;
+    char* ocu;
+    char* dir;
+    int found = 0;
 
+    while(!found && fgets(line, 256, archivo)){
+        strcpy(buff, line);
+        id = atoi(strtok(buff, ","));
+        if (id == n){
+            found = 1;
+        }
+    }
+    if(found){
+        printHeader();
+        strtok(line, ",");
+        nombre = strtok(NULL, ",");
+        edad = strtok(NULL, ",");
+        ocu = strtok(NULL, ",");
+        dir = strtok(NULL, "\n");
+
+        printQuery(id, nombre, atoi(edad), ocu, dir);
+        printFooter();
+    }else
+        printf("No se encontro el registro\n");
 }
+
+void printQuery(int ID, char* nombre, int edad, char* ocupacion, char* direccion){
+    printf("|%3.3i|%-25.25s|%4.4i|%-15.15s|%-26.26s|\n",ID, nombre, edad, ocupacion, direccion);
+}
+void printHeader(){
+    printf("+---+-------------------------+----+---------------+--------------------------+\n");
+    printf("|ID | Nombre                  |Edad| Ocupacion     | Direccion                |\n");
+    printf("+---+-------------------------+----+---------------+--------------------------+\n");
+}
+void printFooter(){
+    printf("+---+-------------------------+----+---------------+--------------------------+\n");
+}
+
 int main(){
-        printf("Comienza el analisis\n");
-	//WAIT PROCEDURE PRINT MAUAL
-
+    printf("Bienvenido/a a base de datos simulator\n");
+    printf("BDS> ");
 	yyparse();   
-
-        printf("Analisis finalizado\n");
+    printf("Adios :)\n");
 } 

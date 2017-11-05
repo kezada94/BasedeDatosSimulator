@@ -21,7 +21,7 @@ ingresa     {return(INGRESA);};
 lista       {return(LISTA);};
 muestra     {return(MUESTRA);};
 {NUM}+      {yylval.ival = atoi(yytext); return(NUM);};
-{STRING_N}+ {yylval.sval = yytext; return(STRING_N);};
+{STRING_N}+ {yylval.sval = strdup(yytext); return(STRING_N);};
 {SPACE}     { /* do nothing */};
 \n          { /* do nothing */};
 {PA}        {return(PA);};

@@ -796,7 +796,7 @@ YY_RULE_SETUP
 case 10:
 YY_RULE_SETUP
 #line 24 "tarea.l"
-{yylval.sval = yytext; return(STRING_N);};
+{yylval.sval = strdup(yytext); return(STRING_N);};
 	YY_BREAK
 case 11:
 YY_RULE_SETUP

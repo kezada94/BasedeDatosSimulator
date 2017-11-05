@@ -74,7 +74,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 11 "tarea.y"
+#line 12 "tarea.y"
 {
 	char *sval;
 	int ival;
