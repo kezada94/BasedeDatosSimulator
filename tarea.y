@@ -16,7 +16,7 @@
 %%
 
 S 	    : INICIA {printf("BDS> ");} inst_n TERMINA; 
-inst_n 	: CREA PA STRING_N { creaArchivo($3);} PC {printf("BDS> ");} inst CIERRA {cierraArchivo();}{printf("BDS> ");} inst_n| ABRE PA STRING_N { abreArchivo($3); }PC {printf("BDS> ");}inst CIERRA inst_n| ; 
+inst_n 	: CREA PA STRING_N { creaArchivo($3);} PC {printf("BDS> ");} inst CIERRA {cierraArchivo();}{printf("BDS> ");} inst_n| ABRE PA STRING_N { abreArchivo($3); }PC {printf("BDS> ");}inst CIERRA {printf("BDS> ");}inst_n| ; 
 inst 	: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N {ingresaDato($3,$5,$7,$9,$11);} PC {printf("BDS> ");}inst | LISTA { listarDatos(); }{printf("BDS> ");}inst| MUESTRA PA NUM { muestraDato($3);}PC {printf("BDS> ");}inst | /* epsilon */;
 
 %%
