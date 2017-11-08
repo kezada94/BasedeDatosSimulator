@@ -4,23 +4,55 @@
 	FILE* archivo;
 %}
 
+// tokens que ocuparemos
 %token INICIA TERMINA CREA CIERRA ABRE INGRESA LISTA MUESTRA PA PC COMMA
 %token <sval> STRING_N
 %token <ival> NUM
 
+//Produccion inicial de la gramatica
 %start S
 %union {
 	char *sval;
 	int ival;
 }
-%%
 
-S 	    : INICIA {printf("BDS> ");} inst_n TERMINA; 
-inst_n 	: CREA PA STRING_N { creaArchivo($3);} PC {printf("BDS> ");} inst CIERRA {cierraArchivo();}{printf("BDS> ");} inst_n| ABRE PA STRING_N { abreArchivo($3); }PC {printf("BDS> ");}inst CIERRA inst_n| ; 
-inst 	: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N {ingresaDato($3,$5,$7,$9,$11);} PC {printf("BDS> ");}inst | LISTA { listarDatos(); }{printf("BDS> ");}inst| MUESTRA PA NUM { muestraDato($3);}PC {printf("BDS> ");}inst | /* epsilon */;
+//Declaramos la gramatica con sus respectivas acciones semanticas
 
 %%
 
+S 	    : INICIA {prompt(1);} inst_n TERMINA; 
+inst_n 	: CREA PA STRING_N { creaArchivo($3);} PC {printf("Archivo creado. ");prompt(2);} 
+            inst CIERRA {cierraArchivo();}{prompt(1);} inst_n
+        | ABRE PA STRING_N { abreArchivo($3); }PC {printf("Archivo abierto. "); prompt(2);}
+            inst CIERRA {prompt(1);}inst_n| ; 
+inst 	: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N 
+            {ingresaDato($3,$5,$7,$9,$11);} PC {printf("Dato ingresado. "); prompt(2);}inst 
+        | LISTA { listarDatos(); }{prompt(2);}inst
+        | MUESTRA PA NUM { muestraDato($3);}PC {prompt(2);}inst 
+        | /* epsilon */;
+
+%%
+
+//funcion creada para guiar al usuario
+void prompt(int opc){
+    if (opc == 1){ 
+        printf("Ahora, los comandos posibles son:\n");
+        printf("'abre(nombre_archivo)'         para abrir y usar un archivo existente\n");
+        printf("'crea(nombre_archivo)'         para crear un archivo nuevo\n");
+        printf("'termina'                      para finalizar.\n");
+        printf("BDS> ");
+    }
+    else if (opc == 2) {
+        printf("Los comandos posibles son:\n");
+        printf("'ingresa()'      para agregar datos [ver orden de parametros]\n");
+        printf("'lista'          para desplegar en pantalla el contenido del archivo.\n");
+        printf("'muestra(id)'    para mostrar los datos de ID\n");
+        printf("'cierra'         para cerrar el archivo en uso\n");
+        printf("BDS> ");
+    }
+}
+
+//Crea un archivo con un nombre especificado en la entrada
 void creaArchivo(char* finelame){
 	archivo = fopen(finelame, "w+");
 	if (archivo == NULL) {
@@ -28,6 +60,8 @@ void creaArchivo(char* finelame){
         exit (1);
 	}
 }
+
+//Cierra un archivo que haya estado abierto anteriormente
 void cierraArchivo(){
 	int res = fclose(archivo);
     if(res){
@@ -35,6 +69,7 @@ void cierraArchivo(){
     }
 }
 
+//Abre un archivo que este creado con anterioridad
 void abreArchivo(char* filename){
     archivo = fopen(filename, "r+");
 	if (archivo == NULL) {
@@ -43,6 +78,7 @@ void abreArchivo(char* filename){
 	}
 }
 
+//Escribe un dato aceptado por la gramatica al archivo abierto
 void ingresaDato(int n, char* nombre, int edad, char* ocu, char* dir){
     char line[256];                     //buffer
     rewind(archivo);                    //get to the start to reset the pointer and avoid wrong appending
@@ -59,6 +95,8 @@ void ingresaDato(int n, char* nombre, int edad, char* ocu, char* dir){
     free(dir);
 }
 
+
+//muestra en pantalla todos los datos que posee el archivo en uso
 void listarDatos(){
     rewind(archivo);
     char line[256];
@@ -82,6 +120,7 @@ void listarDatos(){
 
 }
 
+//muestra un el dato que corresponda segun el ID seleccionado por el usuario
 void muestraDato(int n){
     rewind(archivo);
     char line[256];
@@ -114,20 +153,26 @@ void muestraDato(int n){
         printf("No se encontro el registro\n");
 }
 
+//Imprime un dato leido en el archivo
 void printQuery(int ID, char* nombre, int edad, char* ocupacion, char* direccion){
     printf("|%3.3i|%-25.25s|%4.4i|%-15.15s|%-26.26s|\n",ID, nombre, edad, ocupacion, direccion);
 }
+
+//Cabecera que se ocupa al mostrar o listar un dato
 void printHeader(){
     printf("+---+-------------------------+----+---------------+--------------------------+\n");
     printf("|ID | Nombre                  |Edad| Ocupacion     | Direccion                |\n");
     printf("+---+-------------------------+----+---------------+--------------------------+\n");
 }
+
+//Se imprime al final desues de mostar o listar los datos solicitados
 void printFooter(){
     printf("+---+-------------------------+----+---------------+--------------------------+\n");
 }
 
+//Funcion principal
 int main(){
-    printf("Bienvenido/a a Base de Datos Simulator\n");
+    printf("Bienvenido/a a Base de Datos Simulator\nPara comenzar, escriba 'inicia'\n");
     printf("BDS> ");
 	yyparse();   
     printf("Adios :)\n");

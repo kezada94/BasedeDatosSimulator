@@ -80,7 +80,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 12 "tarea.y" /* yacc.c:1909  */
+#line 13 "tarea.y" /* yacc.c:1909  */
 
 	char *sval;
 	int ival;

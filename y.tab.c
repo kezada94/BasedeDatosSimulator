@@ -138,7 +138,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 12 "tarea.y" /* yacc.c:355  */
+#line 13 "tarea.y" /* yacc.c:355  */
 
 	char *sval;
 	int ival;
@@ -402,16 +402,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  4
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   39
+#define YYLAST   41
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  16
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  17
+#define YYNNTS  18
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  22
+#define YYNRULES  23
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  53
+#define YYNSTATES  54
 
 /* YYTRANSLATE[YYX] -- Symbol number corresponding to YYX as returned
    by yylex, with out-of-bounds checking.  */
@@ -459,9 +459,9 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    18,    18,    18,    19,    19,    19,    19,    19,    19,
-      19,    19,    19,    20,    20,    20,    20,    20,    20,    20,
-      20,    20,    20
+       0,    22,    22,    22,    23,    23,    24,    24,    23,    25,
+      25,    26,    25,    26,    28,    28,    27,    29,    29,    29,
+      30,    30,    30,    31
 };
 #endif
 
@@ -473,7 +473,8 @@ static const char *const yytname[] =
   "$end", "error", "$undefined", "INICIA", "TERMINA", "CREA", "CIERRA",
   "ABRE", "INGRESA", "LISTA", "MUESTRA", "PA", "PC", "COMMA", "STRING_N",
   "NUM", "$accept", "S", "$@1", "inst_n", "$@2", "$@3", "$@4", "$@5",
-  "$@6", "$@7", "inst", "$@8", "$@9", "$@10", "$@11", "$@12", "$@13", YY_NULLPTR
+  "$@6", "$@7", "$@8", "inst", "$@9", "$@10", "$@11", "$@12", "$@13",
+  "$@14", YY_NULLPTR
 };
 #endif
 
@@ -487,10 +488,10 @@ static const yytype_uint16 yytoknum[] =
 };
 # endif
 
-#define YYPACT_NINF -28
+#define YYPACT_NINF -33
 
 #define yypact_value_is_default(Yystate) \
-  (!!((Yystate) == (-28)))
+  (!!((Yystate) == (-33)))
 
 #define YYTABLE_NINF -1
 
@@ -501,12 +502,12 @@ static const yytype_uint16 yytoknum[] =
      STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-       3,   -28,     8,     0,   -28,    -2,     2,     7,     1,     4,
-     -28,   -28,   -28,     5,     9,   -28,   -28,    -6,    -6,    11,
-     -28,    12,    10,    13,    -1,   -28,    14,   -28,     0,    15,
-      -6,   -28,   -28,   -28,     6,   -28,    18,     0,    19,   -28,
-     -28,    16,    -6,    21,   -28,    22,    24,    25,   -28,    23,
-     -28,    -6,   -28
+       4,   -33,     9,     1,   -33,    -1,     0,    10,     2,     3,
+     -33,   -33,   -33,     6,     7,   -33,   -33,    -6,    -6,    11,
+     -33,    12,    14,    15,    -2,   -33,    13,   -33,   -33,    16,
+      -6,   -33,   -33,     1,    17,   -33,    18,     1,   -33,    19,
+     -33,   -33,    20,    -6,    23,   -33,    24,    26,    27,   -33,
+      21,   -33,    -6,   -33
 };
 
   /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -514,26 +515,26 @@ static const yytype_int8 yypact[] =
      means the default is an error.  */
 static const yytype_uint8 yydefact[] =
 {
-       0,     2,     0,    12,     1,     0,     0,     0,     0,     0,
-       3,     4,     9,     0,     0,     5,    10,    22,    22,     0,
-      16,     0,     0,     0,     0,    17,     0,     6,    12,     0,
-      22,    19,     7,    11,     0,    18,     0,    12,     0,    20,
-       8,     0,    22,     0,    21,     0,     0,     0,    13,     0,
-      14,    22,    15
+       0,     2,     0,    13,     1,     0,     0,     0,     0,     0,
+       3,     4,     9,     0,     0,     5,    10,    23,    23,     0,
+      17,     0,     0,     0,     0,    18,     0,     6,    11,     0,
+      23,    20,     7,    13,     0,    19,     0,    13,    12,     0,
+      21,     8,     0,    23,     0,    22,     0,     0,     0,    14,
+       0,    15,    23,    16
 };
 
   /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -28,   -28,   -28,   -27,   -28,   -28,   -28,   -28,   -28,   -28,
-     -18,   -28,   -28,   -28,   -28,   -28,   -28
+     -33,   -33,   -33,   -32,   -33,   -33,   -33,   -33,   -33,   -33,
+     -33,   -18,   -33,   -33,   -33,   -33,   -33,   -33
 };
 
   /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
       -1,     2,     3,     7,    13,    17,    32,    37,    14,    18,
-      22,    49,    51,    25,    30,    36,    42
+      33,    22,    50,    52,    25,    30,    36,    43
 };
 
   /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -541,18 +542,20 @@ static const yytype_int8 yydefgoto[] =
      number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_uint8 yytable[] =
 {
-      23,    33,    19,    20,    21,     5,     1,     6,     4,     8,
-      40,    10,    35,     9,    29,    11,    27,    15,    12,    28,
-      38,    16,    24,    26,    44,     0,     0,     0,    34,    31,
-      39,    43,    41,    52,    45,    50,    46,    47,     0,    48
+      23,    38,    19,    20,    21,    41,     5,     1,     6,     4,
+       8,     9,    35,    29,    10,     0,    11,    12,    15,    16,
+      27,    28,    24,    26,     0,    45,     0,     0,    31,    34,
+      40,    39,    42,    51,    53,    44,    46,     0,    47,    48,
+       0,    49
 };
 
 static const yytype_int8 yycheck[] =
 {
-      18,    28,     8,     9,    10,     5,     3,     7,     0,    11,
-      37,     4,    30,    11,    15,    14,     6,    12,    14,     6,
-      14,    12,    11,    11,    42,    -1,    -1,    -1,    13,    15,
-      12,    15,    13,    51,    13,    12,    14,    13,    -1,    14
+      18,    33,     8,     9,    10,    37,     5,     3,     7,     0,
+      11,    11,    30,    15,     4,    -1,    14,    14,    12,    12,
+       6,     6,    11,    11,    -1,    43,    -1,    -1,    15,    13,
+      12,    14,    13,    12,    52,    15,    13,    -1,    14,    13,
+      -1,    14
 };
 
   /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -561,26 +564,26 @@ static const yytype_uint8 yystos[] =
 {
        0,     3,    17,    18,     0,     5,     7,    19,    11,    11,
        4,    14,    14,    20,    24,    12,    12,    21,    25,     8,
-       9,    10,    26,    26,    11,    29,    11,     6,     6,    15,
-      30,    15,    22,    19,    13,    26,    31,    23,    14,    12,
-      19,    13,    32,    15,    26,    13,    14,    13,    14,    27,
-      12,    28,    26
+       9,    10,    27,    27,    11,    30,    11,     6,     6,    15,
+      31,    15,    22,    26,    13,    27,    32,    23,    19,    14,
+      12,    19,    13,    33,    15,    27,    13,    14,    13,    14,
+      28,    12,    29,    27
 };
 
   /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
        0,    16,    18,    17,    20,    21,    22,    23,    19,    24,
-      25,    19,    19,    27,    28,    26,    29,    30,    26,    31,
-      32,    26,    26
+      25,    26,    19,    19,    28,    29,    27,    30,    31,    27,
+      32,    33,    27,    27
 };
 
   /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     0,     4,     0,     0,     0,     0,    11,     0,
-       0,     9,     0,     0,     0,    15,     0,     0,     4,     0,
-       0,     7,     0
+       0,     0,    10,     0,     0,     0,    15,     0,     0,     4,
+       0,     0,     7,     0
 };
 
 
@@ -1257,85 +1260,91 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 18 "tarea.y" /* yacc.c:1646  */
-    {printf("BDS> ");}
-#line 1263 "y.tab.c" /* yacc.c:1646  */
+#line 22 "tarea.y" /* yacc.c:1646  */
+    {prompt(1);}
+#line 1266 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 19 "tarea.y" /* yacc.c:1646  */
+#line 23 "tarea.y" /* yacc.c:1646  */
     { creaArchivo((yyvsp[0].sval));}
-#line 1269 "y.tab.c" /* yacc.c:1646  */
+#line 1272 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 19 "tarea.y" /* yacc.c:1646  */
-    {printf("BDS> ");}
-#line 1275 "y.tab.c" /* yacc.c:1646  */
+#line 23 "tarea.y" /* yacc.c:1646  */
+    {printf("Archivo creado. ");prompt(2);}
+#line 1278 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 19 "tarea.y" /* yacc.c:1646  */
+#line 24 "tarea.y" /* yacc.c:1646  */
     {cierraArchivo();}
-#line 1281 "y.tab.c" /* yacc.c:1646  */
+#line 1284 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 19 "tarea.y" /* yacc.c:1646  */
-    {printf("BDS> ");}
-#line 1287 "y.tab.c" /* yacc.c:1646  */
+#line 24 "tarea.y" /* yacc.c:1646  */
+    {prompt(1);}
+#line 1290 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 19 "tarea.y" /* yacc.c:1646  */
+#line 25 "tarea.y" /* yacc.c:1646  */
     { abreArchivo((yyvsp[0].sval)); }
-#line 1293 "y.tab.c" /* yacc.c:1646  */
+#line 1296 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 19 "tarea.y" /* yacc.c:1646  */
-    {printf("BDS> ");}
-#line 1299 "y.tab.c" /* yacc.c:1646  */
+#line 25 "tarea.y" /* yacc.c:1646  */
+    {printf("Archivo abierto. "); prompt(2);}
+#line 1302 "y.tab.c" /* yacc.c:1646  */
     break;
 
-  case 13:
-#line 20 "tarea.y" /* yacc.c:1646  */
-    {ingresaDato((yyvsp[-8].ival),(yyvsp[-6].sval),(yyvsp[-4].ival),(yyvsp[-2].sval),(yyvsp[0].sval));}
-#line 1305 "y.tab.c" /* yacc.c:1646  */
+  case 11:
+#line 26 "tarea.y" /* yacc.c:1646  */
+    {prompt(1);}
+#line 1308 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 20 "tarea.y" /* yacc.c:1646  */
-    {printf("BDS> ");}
-#line 1311 "y.tab.c" /* yacc.c:1646  */
+#line 28 "tarea.y" /* yacc.c:1646  */
+    {ingresaDato((yyvsp[-8].ival),(yyvsp[-6].sval),(yyvsp[-4].ival),(yyvsp[-2].sval),(yyvsp[0].sval));}
+#line 1314 "y.tab.c" /* yacc.c:1646  */
     break;
 
-  case 16:
-#line 20 "tarea.y" /* yacc.c:1646  */
-    { listarDatos(); }
-#line 1317 "y.tab.c" /* yacc.c:1646  */
+  case 15:
+#line 28 "tarea.y" /* yacc.c:1646  */
+    {printf("Dato ingresado. "); prompt(2);}
+#line 1320 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 20 "tarea.y" /* yacc.c:1646  */
-    {printf("BDS> ");}
-#line 1323 "y.tab.c" /* yacc.c:1646  */
+#line 29 "tarea.y" /* yacc.c:1646  */
+    { listarDatos(); }
+#line 1326 "y.tab.c" /* yacc.c:1646  */
     break;
 
-  case 19:
-#line 20 "tarea.y" /* yacc.c:1646  */
-    { muestraDato((yyvsp[0].ival));}
-#line 1329 "y.tab.c" /* yacc.c:1646  */
+  case 18:
+#line 29 "tarea.y" /* yacc.c:1646  */
+    {prompt(2);}
+#line 1332 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 20 "tarea.y" /* yacc.c:1646  */
-    {printf("BDS> ");}
-#line 1335 "y.tab.c" /* yacc.c:1646  */
+#line 30 "tarea.y" /* yacc.c:1646  */
+    { muestraDato((yyvsp[0].ival));}
+#line 1338 "y.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 21:
+#line 30 "tarea.y" /* yacc.c:1646  */
+    {prompt(2);}
+#line 1344 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1339 "y.tab.c" /* yacc.c:1646  */
+#line 1348 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1563,9 +1572,29 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 22 "tarea.y" /* yacc.c:1906  */
+#line 33 "tarea.y" /* yacc.c:1906  */
 
 
+//funcion creada para guiar al usuario
+void prompt(int opc){
+    if (opc == 1){ 
+        printf("Ahora, los comandos posibles son:\n");
+        printf("'abre(nombre_archivo)'         para abrir y usar un archivo existente\n");
+        printf("'crea(nombre_archivo)'         para crear un archivo nuevo\n");
+        printf("'termina'                      para finalizar.\n");
+        printf("BDS> ");
+    }
+    else if (opc == 2) {
+        printf("Los comandos posibles son:\n");
+        printf("'ingresa()'      para agregar datos [ver orden de parametros]\n");
+        printf("'lista'          para desplegar en pantalla el contenido del archivo.\n");
+        printf("'muestra(id)'    para mostrar los datos de ID\n");
+        printf("'cierra'         para cerrar el archivo en uso\n");
+        printf("BDS> ");
+    }
+}
+
+//Crea un archivo con un nombre especificado en la entrada
 void creaArchivo(char* finelame){
 	archivo = fopen(finelame, "w+");
 	if (archivo == NULL) {
@@ -1573,6 +1602,8 @@ void creaArchivo(char* finelame){
         exit (1);
 	}
 }
+
+//Cierra un archivo que haya estado abierto anteriormente
 void cierraArchivo(){
 	int res = fclose(archivo);
     if(res){
@@ -1580,6 +1611,7 @@ void cierraArchivo(){
     }
 }
 
+//Abre un archivo que este creado con anterioridad
 void abreArchivo(char* filename){
     archivo = fopen(filename, "r+");
 	if (archivo == NULL) {
@@ -1588,6 +1620,7 @@ void abreArchivo(char* filename){
 	}
 }
 
+//Escribe un dato aceptado por la gramatica al archivo abierto
 void ingresaDato(int n, char* nombre, int edad, char* ocu, char* dir){
     char line[256];                     //buffer
     rewind(archivo);                    //get to the start to reset the pointer and avoid wrong appending
@@ -1604,6 +1637,8 @@ void ingresaDato(int n, char* nombre, int edad, char* ocu, char* dir){
     free(dir);
 }
 
+
+//muestra en pantalla todos los datos que posee el archivo en uso
 void listarDatos(){
     rewind(archivo);
     char line[256];
@@ -1627,6 +1662,7 @@ void listarDatos(){
 
 }
 
+//muestra un el dato que corresponda segun el ID seleccionado por el usuario
 void muestraDato(int n){
     rewind(archivo);
     char line[256];
@@ -1659,20 +1695,26 @@ void muestraDato(int n){
         printf("No se encontro el registro\n");
 }
 
+//Imprime un dato leido en el archivo
 void printQuery(int ID, char* nombre, int edad, char* ocupacion, char* direccion){
     printf("|%3.3i|%-25.25s|%4.4i|%-15.15s|%-26.26s|\n",ID, nombre, edad, ocupacion, direccion);
 }
+
+//Cabecera que se ocupa al mostrar o listar un dato
 void printHeader(){
     printf("+---+-------------------------+----+---------------+--------------------------+\n");
     printf("|ID | Nombre                  |Edad| Ocupacion     | Direccion                |\n");
     printf("+---+-------------------------+----+---------------+--------------------------+\n");
 }
+
+//Se imprime al final desues de mostar o listar los datos solicitados
 void printFooter(){
     printf("+---+-------------------------+----+---------------+--------------------------+\n");
 }
 
+//Funcion principal
 int main(){
-    printf("Bienvenido/a a Base de Datos Simulator\n");
+    printf("Bienvenido/a a Base de Datos Simulator\nPara comenzar, escriba 'inicia'\n");
     printf("BDS> ");
 	yyparse();   
     printf("Adios :)\n");
