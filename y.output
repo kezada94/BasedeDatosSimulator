@@ -1,0 +1,601 @@
+Gramática
+
+    0 $accept: S $end
+
+    1 $@1: %empty
+
+    2 S: INICIA $@1 inst_n TERMINA
+
+    3 $@2: %empty
+
+    4 $@3: %empty
+
+    5 $@4: %empty
+
+    6 $@5: %empty
+
+    7 inst_n: CREA PA STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 inst_n
+
+    8 $@6: %empty
+
+    9 $@7: %empty
+
+   10 $@8: %empty
+
+   11 inst_n: ABRE PA STRING_N $@6 PC $@7 inst CIERRA $@8 inst_n
+   12       | %empty
+
+   13 $@9: %empty
+
+   14 $@10: %empty
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+   16 $@11: %empty
+
+   17 $@12: %empty
+
+   18 inst: LISTA $@11 $@12 inst
+
+   19 $@13: %empty
+
+   20 $@14: %empty
+
+   21 inst: MUESTRA PA NUM $@13 PC $@14 inst
+   22     | %empty
+
+
+Terminales con las reglas donde aparecen
+
+$end (0) 0
+error (256)
+INICIA (258) 2
+TERMINA (259) 2
+CREA (260) 7
+CIERRA (261) 7 11
+ABRE (262) 11
+INGRESA (263) 15
+LISTA (264) 18
+MUESTRA (265) 21
+PA (266) 7 11 15 21
+PC (267) 7 11 15 21
+COMMA (268) 15
+STRING_N (269) 7 11 15
+NUM (270) 15 21
+
+
+No terminales con las reglas donde aparecen
+
+$accept (16)
+    en la izquierda: 0
+S (17)
+    en la izquierda: 2, en la derecha: 0
+$@1 (18)
+    en la izquierda: 1, en la derecha: 2
+inst_n (19)
+    en la izquierda: 7 11 12, en la derecha: 2 7 11
+$@2 (20)
+    en la izquierda: 3, en la derecha: 7
+$@3 (21)
+    en la izquierda: 4, en la derecha: 7
+$@4 (22)
+    en la izquierda: 5, en la derecha: 7
+$@5 (23)
+    en la izquierda: 6, en la derecha: 7
+$@6 (24)
+    en la izquierda: 8, en la derecha: 11
+$@7 (25)
+    en la izquierda: 9, en la derecha: 11
+$@8 (26)
+    en la izquierda: 10, en la derecha: 11
+inst (27)
+    en la izquierda: 15 18 21 22, en la derecha: 7 11 15 18 21
+$@9 (28)
+    en la izquierda: 13, en la derecha: 15
+$@10 (29)
+    en la izquierda: 14, en la derecha: 15
+$@11 (30)
+    en la izquierda: 16, en la derecha: 18
+$@12 (31)
+    en la izquierda: 17, en la derecha: 18
+$@13 (32)
+    en la izquierda: 19, en la derecha: 21
+$@14 (33)
+    en la izquierda: 20, en la derecha: 21
+
+
+Estado 0
+
+    0 $accept: . S $end
+    2 S: . INICIA $@1 inst_n TERMINA
+
+    INICIA  desplazar e ir al estado 1
+
+    S  ir al estado 2
+
+
+Estado 1
+
+    1 $@1: . %empty
+    2 S: INICIA . $@1 inst_n TERMINA
+
+    $default  reduce usando la regla 1 ($@1)
+
+    $@1  ir al estado 3
+
+
+Estado 2
+
+    0 $accept: S . $end
+
+    $end  desplazar e ir al estado 4
+
+
+Estado 3
+
+    2 S: INICIA $@1 . inst_n TERMINA
+    7 inst_n: . CREA PA STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 inst_n
+   11       | . ABRE PA STRING_N $@6 PC $@7 inst CIERRA $@8 inst_n
+   12       | . %empty  [TERMINA]
+
+    CREA  desplazar e ir al estado 5
+    ABRE  desplazar e ir al estado 6
+
+    $default  reduce usando la regla 12 (inst_n)
+
+    inst_n  ir al estado 7
+
+
+Estado 4
+
+    0 $accept: S $end .
+
+    $default  aceptar
+
+
+Estado 5
+
+    7 inst_n: CREA . PA STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 inst_n
+
+    PA  desplazar e ir al estado 8
+
+
+Estado 6
+
+   11 inst_n: ABRE . PA STRING_N $@6 PC $@7 inst CIERRA $@8 inst_n
+
+    PA  desplazar e ir al estado 9
+
+
+Estado 7
+
+    2 S: INICIA $@1 inst_n . TERMINA
+
+    TERMINA  desplazar e ir al estado 10
+
+
+Estado 8
+
+    7 inst_n: CREA PA . STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 inst_n
+
+    STRING_N  desplazar e ir al estado 11
+
+
+Estado 9
+
+   11 inst_n: ABRE PA . STRING_N $@6 PC $@7 inst CIERRA $@8 inst_n
+
+    STRING_N  desplazar e ir al estado 12
+
+
+Estado 10
+
+    2 S: INICIA $@1 inst_n TERMINA .
+
+    $default  reduce usando la regla 2 (S)
+
+
+Estado 11
+
+    3 $@2: . %empty
+    7 inst_n: CREA PA STRING_N . $@2 PC $@3 inst CIERRA $@4 $@5 inst_n
+
+    $default  reduce usando la regla 3 ($@2)
+
+    $@2  ir al estado 13
+
+
+Estado 12
+
+    8 $@6: . %empty
+   11 inst_n: ABRE PA STRING_N . $@6 PC $@7 inst CIERRA $@8 inst_n
+
+    $default  reduce usando la regla 8 ($@6)
+
+    $@6  ir al estado 14
+
+
+Estado 13
+
+    7 inst_n: CREA PA STRING_N $@2 . PC $@3 inst CIERRA $@4 $@5 inst_n
+
+    PC  desplazar e ir al estado 15
+
+
+Estado 14
+
+   11 inst_n: ABRE PA STRING_N $@6 . PC $@7 inst CIERRA $@8 inst_n
+
+    PC  desplazar e ir al estado 16
+
+
+Estado 15
+
+    4 $@3: . %empty
+    7 inst_n: CREA PA STRING_N $@2 PC . $@3 inst CIERRA $@4 $@5 inst_n
+
+    $default  reduce usando la regla 4 ($@3)
+
+    $@3  ir al estado 17
+
+
+Estado 16
+
+    9 $@7: . %empty
+   11 inst_n: ABRE PA STRING_N $@6 PC . $@7 inst CIERRA $@8 inst_n
+
+    $default  reduce usando la regla 9 ($@7)
+
+    $@7  ir al estado 18
+
+
+Estado 17
+
+    7 inst_n: CREA PA STRING_N $@2 PC $@3 . inst CIERRA $@4 $@5 inst_n
+   15 inst: . INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+   18     | . LISTA $@11 $@12 inst
+   21     | . MUESTRA PA NUM $@13 PC $@14 inst
+   22     | . %empty  [CIERRA]
+
+    INGRESA  desplazar e ir al estado 19
+    LISTA    desplazar e ir al estado 20
+    MUESTRA  desplazar e ir al estado 21
+
+    $default  reduce usando la regla 22 (inst)
+
+    inst  ir al estado 22
+
+
+Estado 18
+
+   11 inst_n: ABRE PA STRING_N $@6 PC $@7 . inst CIERRA $@8 inst_n
+   15 inst: . INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+   18     | . LISTA $@11 $@12 inst
+   21     | . MUESTRA PA NUM $@13 PC $@14 inst
+   22     | . %empty  [CIERRA]
+
+    INGRESA  desplazar e ir al estado 19
+    LISTA    desplazar e ir al estado 20
+    MUESTRA  desplazar e ir al estado 21
+
+    $default  reduce usando la regla 22 (inst)
+
+    inst  ir al estado 23
+
+
+Estado 19
+
+   15 inst: INGRESA . PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    PA  desplazar e ir al estado 24
+
+
+Estado 20
+
+   16 $@11: . %empty
+   18 inst: LISTA . $@11 $@12 inst
+
+    $default  reduce usando la regla 16 ($@11)
+
+    $@11  ir al estado 25
+
+
+Estado 21
+
+   21 inst: MUESTRA . PA NUM $@13 PC $@14 inst
+
+    PA  desplazar e ir al estado 26
+
+
+Estado 22
+
+    7 inst_n: CREA PA STRING_N $@2 PC $@3 inst . CIERRA $@4 $@5 inst_n
+
+    CIERRA  desplazar e ir al estado 27
+
+
+Estado 23
+
+   11 inst_n: ABRE PA STRING_N $@6 PC $@7 inst . CIERRA $@8 inst_n
+
+    CIERRA  desplazar e ir al estado 28
+
+
+Estado 24
+
+   15 inst: INGRESA PA . NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    NUM  desplazar e ir al estado 29
+
+
+Estado 25
+
+   17 $@12: . %empty
+   18 inst: LISTA $@11 . $@12 inst
+
+    $default  reduce usando la regla 17 ($@12)
+
+    $@12  ir al estado 30
+
+
+Estado 26
+
+   21 inst: MUESTRA PA . NUM $@13 PC $@14 inst
+
+    NUM  desplazar e ir al estado 31
+
+
+Estado 27
+
+    5 $@4: . %empty
+    7 inst_n: CREA PA STRING_N $@2 PC $@3 inst CIERRA . $@4 $@5 inst_n
+
+    $default  reduce usando la regla 5 ($@4)
+
+    $@4  ir al estado 32
+
+
+Estado 28
+
+   10 $@8: . %empty
+   11 inst_n: ABRE PA STRING_N $@6 PC $@7 inst CIERRA . $@8 inst_n
+
+    $default  reduce usando la regla 10 ($@8)
+
+    $@8  ir al estado 33
+
+
+Estado 29
+
+   15 inst: INGRESA PA NUM . COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    COMMA  desplazar e ir al estado 34
+
+
+Estado 30
+
+   15 inst: . INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+   18     | . LISTA $@11 $@12 inst
+   18     | LISTA $@11 $@12 . inst
+   21     | . MUESTRA PA NUM $@13 PC $@14 inst
+   22     | . %empty  [CIERRA]
+
+    INGRESA  desplazar e ir al estado 19
+    LISTA    desplazar e ir al estado 20
+    MUESTRA  desplazar e ir al estado 21
+
+    $default  reduce usando la regla 22 (inst)
+
+    inst  ir al estado 35
+
+
+Estado 31
+
+   19 $@13: . %empty
+   21 inst: MUESTRA PA NUM . $@13 PC $@14 inst
+
+    $default  reduce usando la regla 19 ($@13)
+
+    $@13  ir al estado 36
+
+
+Estado 32
+
+    6 $@5: . %empty
+    7 inst_n: CREA PA STRING_N $@2 PC $@3 inst CIERRA $@4 . $@5 inst_n
+
+    $default  reduce usando la regla 6 ($@5)
+
+    $@5  ir al estado 37
+
+
+Estado 33
+
+    7 inst_n: . CREA PA STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 inst_n
+   11       | . ABRE PA STRING_N $@6 PC $@7 inst CIERRA $@8 inst_n
+   11       | ABRE PA STRING_N $@6 PC $@7 inst CIERRA $@8 . inst_n
+   12       | . %empty  [TERMINA]
+
+    CREA  desplazar e ir al estado 5
+    ABRE  desplazar e ir al estado 6
+
+    $default  reduce usando la regla 12 (inst_n)
+
+    inst_n  ir al estado 38
+
+
+Estado 34
+
+   15 inst: INGRESA PA NUM COMMA . STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    STRING_N  desplazar e ir al estado 39
+
+
+Estado 35
+
+   18 inst: LISTA $@11 $@12 inst .
+
+    $default  reduce usando la regla 18 (inst)
+
+
+Estado 36
+
+   21 inst: MUESTRA PA NUM $@13 . PC $@14 inst
+
+    PC  desplazar e ir al estado 40
+
+
+Estado 37
+
+    7 inst_n: . CREA PA STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 inst_n
+    7       | CREA PA STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 . inst_n
+   11       | . ABRE PA STRING_N $@6 PC $@7 inst CIERRA $@8 inst_n
+   12       | . %empty  [TERMINA]
+
+    CREA  desplazar e ir al estado 5
+    ABRE  desplazar e ir al estado 6
+
+    $default  reduce usando la regla 12 (inst_n)
+
+    inst_n  ir al estado 41
+
+
+Estado 38
+
+   11 inst_n: ABRE PA STRING_N $@6 PC $@7 inst CIERRA $@8 inst_n .
+
+    $default  reduce usando la regla 11 (inst_n)
+
+
+Estado 39
+
+   15 inst: INGRESA PA NUM COMMA STRING_N . COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    COMMA  desplazar e ir al estado 42
+
+
+Estado 40
+
+   20 $@14: . %empty
+   21 inst: MUESTRA PA NUM $@13 PC . $@14 inst
+
+    $default  reduce usando la regla 20 ($@14)
+
+    $@14  ir al estado 43
+
+
+Estado 41
+
+    7 inst_n: CREA PA STRING_N $@2 PC $@3 inst CIERRA $@4 $@5 inst_n .
+
+    $default  reduce usando la regla 7 (inst_n)
+
+
+Estado 42
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA . NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    NUM  desplazar e ir al estado 44
+
+
+Estado 43
+
+   15 inst: . INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+   18     | . LISTA $@11 $@12 inst
+   21     | . MUESTRA PA NUM $@13 PC $@14 inst
+   21     | MUESTRA PA NUM $@13 PC $@14 . inst
+   22     | . %empty  [CIERRA]
+
+    INGRESA  desplazar e ir al estado 19
+    LISTA    desplazar e ir al estado 20
+    MUESTRA  desplazar e ir al estado 21
+
+    $default  reduce usando la regla 22 (inst)
+
+    inst  ir al estado 45
+
+
+Estado 44
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM . COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    COMMA  desplazar e ir al estado 46
+
+
+Estado 45
+
+   21 inst: MUESTRA PA NUM $@13 PC $@14 inst .
+
+    $default  reduce usando la regla 21 (inst)
+
+
+Estado 46
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA . STRING_N COMMA STRING_N $@9 PC $@10 inst
+
+    STRING_N  desplazar e ir al estado 47
+
+
+Estado 47
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N . COMMA STRING_N $@9 PC $@10 inst
+
+    COMMA  desplazar e ir al estado 48
+
+
+Estado 48
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA . STRING_N $@9 PC $@10 inst
+
+    STRING_N  desplazar e ir al estado 49
+
+
+Estado 49
+
+   13 $@9: . %empty
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N . $@9 PC $@10 inst
+
+    $default  reduce usando la regla 13 ($@9)
+
+    $@9  ir al estado 50
+
+
+Estado 50
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 . PC $@10 inst
+
+    PC  desplazar e ir al estado 51
+
+
+Estado 51
+
+   14 $@10: . %empty
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC . $@10 inst
+
+    $default  reduce usando la regla 14 ($@10)
+
+    $@10  ir al estado 52
+
+
+Estado 52
+
+   15 inst: . INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst
+   15     | INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 . inst
+   18     | . LISTA $@11 $@12 inst
+   21     | . MUESTRA PA NUM $@13 PC $@14 inst
+   22     | . %empty  [CIERRA]
+
+    INGRESA  desplazar e ir al estado 19
+    LISTA    desplazar e ir al estado 20
+    MUESTRA  desplazar e ir al estado 21
+
+    $default  reduce usando la regla 22 (inst)
+
+    inst  ir al estado 53
+
+
+Estado 53
+
+   15 inst: INGRESA PA NUM COMMA STRING_N COMMA NUM COMMA STRING_N COMMA STRING_N $@9 PC $@10 inst .
+
+    $default  reduce usando la regla 15 (inst)
